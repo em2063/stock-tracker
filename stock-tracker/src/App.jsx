@@ -11,12 +11,13 @@ function App() {
               <tr>
                 <th>Ticker</th>
                 <th>Price</th>
-                <th>Date</th>
+                <th>Change</th>
                 <th>Time</th>
               </tr>
             </thead>
             <tbody>
               <StockRow ticker="aapl" />
+              <StockRow ticker="tsla" />
             </tbody>
           </table>
         </div>

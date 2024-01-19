@@ -31,18 +31,20 @@ function StockRow(props) {
     );
   }
 
+  const dataPercent = ((data.change / data.latestPrice) * 100).toFixed(2);
+  let formattedData = null;
+  if (data.change < 0) {
+    formattedData = "-" + dataPercent + "%";
+  } else {
+    formattedData = "+" + dataPercent + "%";
+  }
+
   return (
     <>
       <tr>
         <td>{props.ticker}</td>
         <td>{data.latestPrice}</td>
-        <td>
-          {new Date().getDate() +
-            "/" +
-            (new Date().getMonth() + 1) +
-            "/" +
-            new Date().getFullYear()}
-        </td>
+        <td>{formattedData}</td>
         <td>{data.latestTime}</td>
       </tr>
     </>
