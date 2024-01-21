@@ -18,6 +18,7 @@ function App() {
             <tbody>
               <StockRow ticker="aapl" />
               <StockRow ticker="tsla" />
+              <StockRow ticker="KO" />
             </tbody>
           </table>
         </div>
