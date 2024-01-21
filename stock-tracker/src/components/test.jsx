@@ -19,7 +19,7 @@ function StockRow(props) {
     };
 
     fetchData();
-  }, [props.ticker]);
+  }, []);
 
   if (!data) {
     return (
@@ -31,12 +31,16 @@ function StockRow(props) {
     );
   }
 
-  const dataPercent = ((data.change / data.latestPrice) * 100).toFixed(2);
-  let formattedData = null;
-  if (data.change < 0) {
-    formattedData = "-" + dataPercent + "%";
-  } else {
-    formattedData = "+" + dataPercent + "%";
+  function changePercent() {
+    const dataPercent = ((data.change / data.latestPrice) * 100).toFixed(2);
+    let formattedData = null;
+    if (data.change < 0) {
+      formattedData = "-" + dataPercent + "%";
+      return formattedData;
+    } else {
+      formattedData = "+" + dataPercent + "%";
+      return formattedData;
+    }
   }
 
   return (
@@ -44,7 +48,7 @@ function StockRow(props) {
       <tr>
         <td>{props.ticker}</td>
         <td>{data.latestPrice}</td>
-        <td>{formattedData}</td>
+        <td>{changePercent()}</td>
         <td>{data.latestTime}</td>
       </tr>
     </>
