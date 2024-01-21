@@ -42,22 +42,26 @@ function StockRow(props) {
 
   if (!data) {
     return (
-      <>
-        <tr>
-          <td>Loading...</td>
-        </tr>
-      </>
+      <li class="list-group-item p-4">
+        <div className="list-item-container">
+          <h4>Loading...</h4>
+          <div className="stock-value-container"></div>
+        </div>
+      </li>
     );
   }
 
   return (
     <>
-      <tr>
-        <td>{props.ticker}</td>
-        <td>{"$" + data.latestPrice}</td>
-        <td style={changeStyle(data)}>{changePercent(data)}</td>
-        <td>{data.latestTime}</td>
-      </tr>
+      <li class="list-group-item p-4">
+        <div className="list-item-container">
+          <h4>{props.ticker.toUpperCase()}</h4>
+          <div className="stock-value-container">
+            <h6>0</h6>
+            <p></p>
+          </div>
+        </div>
+      </li>
     </>
   );
 }
