@@ -61,7 +61,8 @@ body {
 
 .watchlist-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .watchlist {
@@ -77,4 +78,14 @@ body {
 .watchlist-text span {
   background-color: #1d1d1d;
   padding: 3px;
+}
+
+.list-grid {
+  max-width: 70%;
+  width: 1000px;
+}
+
+.watchlist-outer-container {
+  display: flex;
+  justify-content: center;
 }
