@@ -44,3 +44,20 @@ body {
   border-radius: 20px;
   background-color: #eafff6;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1000px;
+  max-width: 70%;
+}
+
+.form-floating {
+  margin-top: 10%;
+}
+
+.watchlist {
+  display: flex;
+  justify-content: center;
+}
