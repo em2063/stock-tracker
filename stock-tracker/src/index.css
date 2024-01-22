@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 body {
   background-color: #2c2626a9;
 }
@@ -57,7 +59,22 @@ body {
   margin-top: 10%;
 }
 
-.watchlist {
+.watchlist-content {
   display: flex;
   justify-content: center;
+}
+
+.watchlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.watchlist-text {
+  color: #eafff6;
+  font-family: Poppins;
+}
+
+.watchlist-text span {
+  background-color: #1d1d1d;
+  padding: 3px;
 }
