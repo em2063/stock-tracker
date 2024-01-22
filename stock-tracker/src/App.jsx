@@ -1,22 +1,21 @@
 import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import NavBar from "./components/nav.jsx";
-import StockRow from "./components/stockCard.jsx";
+import WatchList from "./components/watchlist.jsx";
+import Portfolio from "./components/portfolio.jsx";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./index.css";
-import List from "./components/list.jsx";
 
 function App() {
   return (
     <>
       <NavBar />
-      <div className="App">
-        <div className="container-lg">
-          <div className="assetValue">
-            <h1>0</h1>
-          </div>
-          <List />
-        </div>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/watchlist" element={<WatchList />} />
+        </Routes>
+      </Router>
     </>
   );
 }

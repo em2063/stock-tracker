@@ -6,7 +6,7 @@ function List() {
   return (
     <>
       <div className="list-container">
-        <ul class="list-group">
+        <ul className="list-group">
           <StockRow ticker="aapl" />
         </ul>
       </div>

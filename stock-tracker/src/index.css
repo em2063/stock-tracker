@@ -16,7 +16,7 @@ body {
   flex-direction: column;
 }
 
-.assetValue {
+.asset-value {
   margin-top: 7%;
   display: flex;
   justify-content: center;

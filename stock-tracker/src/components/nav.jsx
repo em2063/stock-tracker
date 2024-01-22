@@ -5,7 +5,7 @@ function NavBar() {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="index.html">
+          <a className="navbar-brand" href="/">
             Stock Tracker
           </a>
           <button
@@ -22,16 +22,12 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="index.html"
-                >
+                <a className="nav-link active" href="/">
                   Portfolio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/watchlist">
                   Watchlist
                 </a>
               </li>
