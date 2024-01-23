@@ -33,7 +33,6 @@ function WatchList() {
                     name="ticker"
                   />
                   <label htmlFor="floatingInput">Search for a stock</label>
-                  <button type="submit">Submit</button>
                 </div>
               </form>
             </div>
