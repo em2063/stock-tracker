@@ -57,8 +57,8 @@ function StockRow(props) {
         <div className="list-item-container">
           <h4>{props.ticker.toUpperCase()}</h4>
           <div className="stock-value-container">
-            <h6>0</h6>
-            <p></p>
+            <h6>{data.latestPrice}</h6>
+            <p style={changeStyle(data)}>{changePercent(data)}</p>
           </div>
         </div>
       </li>
