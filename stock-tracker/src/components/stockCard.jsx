@@ -9,20 +9,35 @@ function changePercent(data) {
     formattedData = data.change + " (" + dataPercent + "%" + ")";
     return formattedData;
   } else {
-    formattedData = "+" + data.change + " (" + dataPercent + "%" + ")";
+    formattedData = "+" + "$" + data.change + " (" + dataPercent + "%" + ")";
     return formattedData;
   }
 }
 
-function changeStyle(data) {
-  return {
-    color: data.change > 0 ? "#4caf50" : "#e53935",
+function changeStyle(data, isHovered) {
+  const baseStyle = {
     fontSize: "0.8em",
+    transition: "background-color 0.3s ease",
   };
+
+  const positiveStyle = {
+    ...baseStyle,
+    backgroundColor: isHovered ? "#c7f3e9" : "#eafff6",
+    color: "#4caf50",
+  };
+
+  const negativeStyle = {
+    ...baseStyle,
+    backgroundColor: isHovered ? "#ffae9f" : "#eafff6",
+    color: "#e53935",
+  };
+
+  return data.change > 0 ? positiveStyle : negativeStyle;
 }
 
 function StockRow(props) {
   const [data, setData] = useState();
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,12 +68,17 @@ function StockRow(props) {
 
   return (
     <>
-      <li class="list-group-item p-4">
+      <li
+        class="list-group-item p-4"
+        style={changeStyle(data, isHovered)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="list-item-container">
           <h4>{props.ticker.toUpperCase()}</h4>
           <div className="stock-value-container">
-            <h6>{data.latestPrice}</h6>
-            <p style={changeStyle(data)}>{changePercent(data)}</p>
+            <h6>{"$" + data.latestPrice.toFixed(2)}</h6>
+            <p style={changeStyle(data, false)}>{changePercent(data)}</p>
           </div>
         </div>
       </li>
