@@ -6,7 +6,7 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Stock Tracker
+            StockSurfer
           </a>
           <button
             className="navbar-toggler"
