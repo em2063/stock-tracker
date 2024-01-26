@@ -1,5 +1,4 @@
 import React from "react";
-import List from "./list.jsx";
 
 function Portfolio() {
   return (
@@ -9,7 +8,6 @@ function Portfolio() {
           <div className="asset-value">
             <h6>0</h6>
           </div>
-          <List />
         </div>
       </div>
     </>
