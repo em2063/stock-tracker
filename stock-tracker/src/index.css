@@ -116,6 +116,9 @@ body {
   max-width: 40%;
   max-height: 45%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 20px;
 }
 
 .modal-content {
@@ -125,7 +128,8 @@ body {
   justify-content: center;
   align-items: center;
   transform: translate(-50%, -50%);
-  background-color: #b4b4b4a6;
+  background-color: #ffffff;
+  flex-direction: column;
 }
 
 .close {
@@ -133,4 +137,18 @@ body {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }

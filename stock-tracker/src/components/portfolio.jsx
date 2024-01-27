@@ -43,10 +43,32 @@ function Portfolio() {
       {modalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <h1>fefewef</h1>
+            <span className="close btn-close" onClick={closeModal}></span>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label for="recipient-name" className="col-form-label">
+                    What stock do you own? (e.g AAPL)
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="recipient-name"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label for="message-text" className="col-form-label">
+                    How much of this stock do you own? (e.g 100)
+                  </label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       )}
