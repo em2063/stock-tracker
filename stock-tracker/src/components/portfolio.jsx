@@ -30,6 +30,15 @@ function Portfolio() {
     }
   };
 
+  const addStock = (stockTicker, userInvestment) => {
+    const newStock = {
+      ticker: stockTicker.toUpperCase(),
+      investment: userInvestment,
+    };
+    setStocks(...stocks, newStock);
+    closeModal();
+  };
+
   return (
     <>
       <div className={`App ${isBlurred ? "blurred" : ""}`}>
@@ -45,29 +54,37 @@ function Portfolio() {
           <div className="modal-content">
             <span className="close btn-close" onClick={closeModal}></span>
             <div className="modal-body">
-              <form>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const stockTicker = e.target.elements["stock-ticker"].value;
+                  const userInvestment =
+                    e.target.elements["user-investment"].value;
+                  addStock(stockTicker, userInvestment);
+                }}
+              >
                 <div className="mb-3">
-                  <label for="recipient-name" className="col-form-label">
+                  <label className="col-form-label">
                     What stock do you own? (e.g AAPL)
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="recipient-name"
-                  />
+                  <input required className="form-control" id="stock-ticker" />
                 </div>
                 <div className="mb-3">
-                  <label for="message-text" className="col-form-label">
+                  <label className="col-form-label">
                     How much of this stock do you own? (e.g 100)
                   </label>
-                  <textarea class="form-control" id="message-text"></textarea>
+                  <input
+                    required
+                    className="form-control"
+                    id="user-investment"
+                  />
+                </div>
+                <div className="modal-footer">
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
                 </div>
               </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">
-                Submit
-              </button>
             </div>
           </div>
         </div>

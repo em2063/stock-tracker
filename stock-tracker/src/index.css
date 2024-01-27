@@ -144,11 +144,16 @@ body {
   align-items: center;
 }
 
-.form-control {
+#stock-ticker {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+.modal footer {
+  display: flex;
+  justify-content: center;
 }
