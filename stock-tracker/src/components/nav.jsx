@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * NavBar component represents the navigation bar of the application.
+ * It contains links to navigate between different sections of the application.
+ * @returns {JSX.Element} NavBar component.
+ */
 function NavBar() {
   return (
     <>
@@ -32,17 +37,6 @@ function NavBar() {
                 </a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import StockRow from "./stockCard";
 
+/**
+ * WatchList component displays a list of stocks users wish to keep an eye on.
+ * @returns {JSX.Element} WatchList component.
+ */
 function WatchList() {
   const [stocks, setStocks] = useState([]);
   const [tickerInput, setTickerInput] = useState("");
 
+  /**
+   * Adds a stock to the watchlist.
+   * @param {Event} e - The event object.
+   */
   const addStock = (e) => {
     e.preventDefault();
     const stock = tickerInput;

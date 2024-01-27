@@ -1,20 +1,29 @@
 import React, { useState } from "react";
+import Modal from "./modal.jsx";
 
+/**
+ * Portfolio is the main component here, this brings together what allows users to search and add a stock to their portfolio, selecting how much they own.
+ * They can view their stocks, add new ones and also view their portfolio value ---> COMING SOON
+ */
 function Portfolio() {
+  //State variables for managing stocks in portfolio, modal for adding a stock and the blur effect (modal)
   const [stocks, setStocks] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
 
+  //Function that opens modal and adds blur effect
   const openModal = () => {
     setModalOpen(true);
     setIsBlurred(true);
   };
 
+  //Function to close modal and remove blur effect
   const closeModal = () => {
     setModalOpen(false);
     setIsBlurred(false);
   };
 
+  //Function to render stock portfolio section
   const stockPortfolio = () => {
     if (stocks.length === 0) {
       return (
@@ -30,6 +39,7 @@ function Portfolio() {
     }
   };
 
+  //Function to add new stock to portfolio
   const addStock = (stockTicker, userInvestment) => {
     const newStock = {
       ticker: stockTicker.toUpperCase(),
@@ -49,46 +59,16 @@ function Portfolio() {
           <div className="portfolio-content">{stockPortfolio()}</div>
         </div>
       </div>
-      {modalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close btn-close" onClick={closeModal}></span>
-            <div className="modal-body">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const stockTicker = e.target.elements["stock-ticker"].value;
-                  const userInvestment =
-                    e.target.elements["user-investment"].value;
-                  addStock(stockTicker, userInvestment);
-                }}
-              >
-                <div className="mb-3">
-                  <label className="col-form-label">
-                    What stock do you own? (e.g AAPL)
-                  </label>
-                  <input required className="form-control" id="stock-ticker" />
-                </div>
-                <div className="mb-3">
-                  <label className="col-form-label">
-                    How much of this stock do you own? (e.g 100)
-                  </label>
-                  <input
-                    required
-                    className="form-control"
-                    id="user-investment"
-                  />
-                </div>
-                <div className="modal-footer">
-                  <button type="submit" className="btn btn-primary">
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
+      <Modal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        onSubmit={(e) => {
+          e.preventDefault();
+          const stockTicker = e.target.elements["stock-ticker"].value;
+          const userInvestment = e.target.elements["user-investment"].value;
+          addStock(stockTicker, userInvestment);
+        }}
+      />
     </>
   );
 }

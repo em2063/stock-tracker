@@ -6,6 +6,7 @@ import Portfolio from "./components/portfolio.jsx";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./index.css";
 
+//Main application with elements combined
 function App() {
   return (
     <>

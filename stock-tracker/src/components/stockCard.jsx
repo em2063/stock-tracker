@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { api } from "../config/api.js";
 
+/**
+ * Calculates the percentage change in stock price and formats it accordingly.
+ * @param {Object} data - Stock data containing latest price and change.
+ * @returns {string} Formatted string representing the percentage change.
+ */
 function changePercent(data) {
   const dataPercent = ((data.change / data.latestPrice) * 100).toFixed(2);
   let formattedData = null;
@@ -14,6 +19,12 @@ function changePercent(data) {
   }
 }
 
+/**
+ * Determines the style for displaying stock data based on change in price and hover state.
+ * @param {Object} data - Stock data containing latest price and change.
+ * @param {boolean} isHovered - Flag indicating whether the stock row is being hovered.
+ * @returns {Object} CSS style object for the stock row.
+ */
 function changeStyle(data, isHovered) {
   const baseStyle = {
     fontSize: "0.8em",
@@ -35,6 +46,12 @@ function changeStyle(data, isHovered) {
   return data.change > 0 ? positiveStyle : negativeStyle;
 }
 
+/**
+ * StockRow component represents a row in the stock list displaying stock information.
+ * @param {Object} props - Component props.
+ * @param {string} props.ticker - Stock ticker symbol.
+ * @returns {JSX.Element} StockRow component.
+ */
 function StockRow(props) {
   const [data, setData] = useState();
   const [isHovered, setIsHovered] = useState(false);
