@@ -7,7 +7,7 @@ import { fetchData } from "../config/api.js";
  * @param {Object} data - Stock data containing latest price and change.
  * @returns {string} Formatted string representing the percentage change.
  */
-function changePercent(data) {
+export function changePercent(data) {
   const dataPercent = ((data.change / data.latestPrice) * 100).toFixed(2);
   let formattedData = null;
   if (data.change < 0) {
@@ -25,7 +25,7 @@ function changePercent(data) {
  * @param {boolean} isHovered - Flag indicating whether the stock row is being hovered.
  * @returns {Object} CSS style object for the stock row.
  */
-function changeStyle(data, isHovered) {
+export function changeStyle(data, isHovered) {
   const baseStyle = {
     fontSize: "0.8em",
     transition: "background-color 0.3s ease",
@@ -71,7 +71,7 @@ function StockRow(props) {
 
   if (!data) {
     return (
-      <li class="list-group-item p-4">
+      <li className="list-group-item p-4">
         <div className="list-item-container">
           <h4>Loading...</h4>
           <div className="stock-value-container"></div>
@@ -83,7 +83,7 @@ function StockRow(props) {
   return (
     <>
       <li
-        class="list-group-item p-4"
+        className="list-group-item p-4"
         style={changeStyle(data, isHovered)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

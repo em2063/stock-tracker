@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import StockRow from "./stockCard";
+import StockRow from "./watchlistCard.jsx";
 
 /**
  * WatchList component displays a list of stocks users wish to keep an eye on.

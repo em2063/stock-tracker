@@ -158,3 +158,27 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portfolio-container {
+  margin-top: 20px;
+}
+
+.portfolio-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.portfolio-prompt-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.portfolio-prompt {
+  margin-bottom: 20px;
+}

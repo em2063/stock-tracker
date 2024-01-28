@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./modal.jsx";
+import PortfolioCard from "./portfolioCard.jsx";
 
 /**
  * Portfolio is the main component here, this brings together what allows users to search and add a stock to their portfolio, selecting how much they own.
@@ -10,7 +11,6 @@ function Portfolio() {
   const [stocks, setStocks] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
-  const [data, setData] = useState();
 
   //Function that opens modal and adds blur effect
   const openModal = () => {
@@ -38,6 +38,22 @@ function Portfolio() {
         </div>
       );
     } else {
+      return (
+        <div className="portfolio-container">
+          <ul className="portfolio-list">
+            {stocks.map((stock, index) => (
+              <PortfolioCard
+                key={index}
+                investment={stock.investment.toString()}
+                ticker={stock.ticker.toString()}
+              />
+            ))}
+          </ul>
+          <button className="btn btn-outline-dark btn-lg" onClick={openModal}>
+            Add Stock
+          </button>
+        </div>
+      );
     }
   };
 
@@ -55,9 +71,7 @@ function Portfolio() {
     <>
       <div className={`App ${isBlurred ? "blurred" : ""}`}>
         <div className="container-lg">
-          <div className="asset-value">
-            <h1></h1>
-          </div>
+          <div className="asset-value"></div>
           <div className="portfolio-content">{stockPortfolio()}</div>
         </div>
       </div>
