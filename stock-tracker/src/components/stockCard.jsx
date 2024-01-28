@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { api } from "../config/api.js";
+import { fetchData } from "../config/api.js";
 
 /**
  * Calculates the percentage change in stock price and formats it accordingly.
@@ -57,20 +57,17 @@ function StockRow(props) {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const url = `${api.base_url}/${props.ticker}?token=${api.api_token}`;
-
+    const fetchDataForStock = async () => {
       try {
-        const response = await fetch(url);
-        const jsonData = await response.json();
-        setData(jsonData[jsonData.length - 1]);
+        const stockData = await fetchData(props.ticker);
+        setData(stockData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data for", props.ticker, ":", error);
       }
     };
 
-    fetchData();
-  }, []);
+    fetchDataForStock();
+  }, [props.ticker]);
 
   if (!data) {
     return (

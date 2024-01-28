@@ -10,6 +10,7 @@ function Portfolio() {
   const [stocks, setStocks] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
+  const [data, setData] = useState();
 
   //Function that opens modal and adds blur effect
   const openModal = () => {
@@ -36,6 +37,7 @@ function Portfolio() {
           </button>
         </div>
       );
+    } else {
     }
   };
 
@@ -45,7 +47,7 @@ function Portfolio() {
       ticker: stockTicker.toUpperCase(),
       investment: userInvestment,
     };
-    setStocks(...stocks, newStock);
+    setStocks([...stocks, newStock]);
     closeModal();
   };
 
