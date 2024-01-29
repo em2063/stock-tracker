@@ -43,7 +43,7 @@ function PortfolioCard(props) {
               {data.latestPrice} ({changePercent(data)})
             </h5>
           </div>
-          <div className="stock-value-container">
+          <div className="user-investment-value">
             <h6>{"$" + props.investment}</h6>
           </div>
         </div>

@@ -182,3 +182,12 @@ body {
 .portfolio-prompt {
   margin-bottom: 20px;
 }
+
+.open-modal-button {
+  display: flex;
+  justify-content: center;
+}
+
+.user-investment-value {
+  color: #000;
+}

@@ -49,9 +49,11 @@ function Portfolio() {
               />
             ))}
           </ul>
-          <button className="btn btn-outline-dark btn-lg" onClick={openModal}>
-            Add Stock
-          </button>
+          <div className="open-modal-button">
+            <button className="btn btn-outline-dark btn-lg" onClick={openModal}>
+              Add Stock
+            </button>
+          </div>
         </div>
       );
     }
