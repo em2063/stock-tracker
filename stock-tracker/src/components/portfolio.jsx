@@ -11,6 +11,7 @@ function Portfolio() {
   const [stocks, setStocks] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
+  const [balance, setBalance] = useState(0);
 
   //Function that opens modal and adds blur effect
   const openModal = () => {
@@ -40,6 +41,11 @@ function Portfolio() {
     } else {
       return (
         <div className="portfolio-container">
+          <div className="portfolio-balance-container">
+            <div className="portfolio-balance-value">
+              <h1 className="portfolio-value">${balance}</h1>
+            </div>
+          </div>
           <ul className="portfolio-list">
             {stocks.map((stock, index) => (
               <PortfolioCard
@@ -61,14 +67,38 @@ function Portfolio() {
 
   //Function to add new stock to portfolio
   const addStock = (stockTicker, userInvestment) => {
-    const newStock = {
-      ticker: stockTicker.toUpperCase(),
-      investment: userInvestment,
-    };
-    setStocks([...stocks, newStock]);
+    const existingStockIndex = stocks.findIndex(
+      (stock) => stock.ticker === stockTicker.toUpperCase()
+    );
+    const investmentAmount = parseFloat(userInvestment);
+
+    if (existingStockIndex !== -1) {
+      console.log("Existing Stock Index:", existingStockIndex);
+      console.log("Investment Amount:", investmentAmount);
+
+      const updatedStocks = [...stocks];
+      updatedStocks[existingStockIndex].investment =
+        parseFloat(updatedStocks[existingStockIndex].investment) +
+        investmentAmount;
+
+      console.log(
+        "Updated Investment Amount:",
+        updatedStocks[existingStockIndex].investment
+      );
+      setStocks(updatedStocks);
+      setBalance(balance + investmentAmount);
+    } else {
+      const newStock = {
+        ticker: stockTicker.toUpperCase(),
+        investment: investmentAmount,
+      };
+      setStocks([...stocks, newStock]);
+      setBalance(balance + investmentAmount);
+    }
     closeModal();
   };
 
+  // Returns the main UI elements of the portfolio section
   return (
     <>
       <div className={`App ${isBlurred ? "blurred" : ""}`}>
