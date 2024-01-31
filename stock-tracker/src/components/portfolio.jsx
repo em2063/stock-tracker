@@ -81,10 +81,6 @@ function Portfolio() {
         parseFloat(updatedStocks[existingStockIndex].investment) +
         investmentAmount;
 
-      console.log(
-        "Updated Investment Amount:",
-        updatedStocks[existingStockIndex].investment
-      );
       setStocks(updatedStocks);
       setBalance(balance + investmentAmount);
     } else {
